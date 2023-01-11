@@ -1,0 +1,263 @@
+/* design for canvas
+    - set default color to black
+    - fill screen, no margins */
+    canvas {
+        display: block;
+        background-color: #000000;
+        width: 100%;
+        height: 100%;
+        margin: 0px 0px 0px 0px;
+      }
+      
+      /* removes default margin, padding, border*/
+      body,
+      ul,
+      li,
+      h1 {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      
+      /* define font family for all body elements for universal design*/
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      
+      /* base class for displaying background image on webpages 
+            - cover the whole page
+            - center image
+            - don't allow repeat images*/
+      .image-body {
+        background-size: cover;
+        height: 100%;
+        overflow: auto;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      
+      /* used to set specific background image for game design and resource page */
+      #design-body {
+        /* background-image: url(../../assets/game-assets/design_background.jpg); */
+      }
+      
+      /* set game page background to black */
+      #game-body {
+        background-color: black;
+        overflow: hidden;
+      }
+      
+      /* 
+            nav element
+            - displaying as flex
+            - defining font size, line height
+        */
+      nav {
+        display: flex;
+        font-size: 20pt;
+        line-height: 24px;
+      }
+      
+      /* unordered list
+            - set background color
+            - remove list style (bullet points)
+            - set flex-basis to make nav cover entire width of window
+            - high z-index to ensure it displays on top of other elements */
+      nav ul {
+        background-color: rgb(0, 0, 0);
+        list-style: none;
+        flex-basis: 100%;
+        z-index: 99;
+      }
+      
+      /* list item 
+            - float makes list items align at the top of page
+        */
+      nav ul li {
+        float: left;
+        position: relative;
+      }
+      
+      /* link in list
+            - set padding
+            - remove default link display
+            - set text color */
+      nav ul li a {
+        display: flex;
+        padding: 20px 40px;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+      }
+      
+      .restart-button {
+        display: flex;
+        padding: 20px 40px;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+      }
+      
+      /* within the nav element
+           shows which page is currently active 
+           changes background and text color */
+      .active {
+        background-color: rgb(78, 106, 138);
+        color: rgb(255, 255, 255);
+      }
+      
+      
+      
+      /* when a page is not active, 
+           hovering on it will change background and text color */
+      .restart-button:hover,
+      nav ul li a:hover:not(.active) {
+        background-color: rgb(56, 56, 56);
+        color: rgb(255, 255, 255);
+      }
+      
+      /* header 1 font/color definitions for universal design*/
+      h1 {
+        color: rgb(199, 202, 211);
+        font-size: 40pt;
+      }
+      
+      /* header 2 font/color definitions for universal design*/
+      h2 {
+        color: rgb(199, 202, 211);
+        font-size: 30pt;
+      }
+      
+      /* Class for standalone boxes in center of screen
+             - Defines basic flex box
+             - handles text overflow
+             - by default: max width of box is 800px, min width in 80% 
+             - sets opaque dark background and light text color 
+        Stuff handled by additional classes:
+             - margin
+             - padding
+             - text alignment
+             - etc. */
+      /* .central-box {
+            display: flex;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            flex-basis: 70%;
+            flex-direction: column;
+            box-sizing: border-box;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            width:80%;
+            max-width: 800px;
+            background-color: rgb(15, 15, 15, 0.8);
+            color: rgb(199, 202, 211)
+        } */
+      
+      /* builds on central-box, defines specifics for home page */
+      #start-box {
+        align-items: center;
+        max-width: fit-content;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding: 10%;
+        text-align: center;
+      }
+      
+      /* defines padding for the spaceship img in start box */
+      #start-box img {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+      
+      /*  start button to initialize the game 
+            defines margin, padding, border radius, color, text design */
+      .start-btn {
+        display: inline-block;
+        background-color: rgb(78, 106, 138);
+        color: rgb(34, 34, 34);
+        border-radius: 5px;
+        text-decoration: none;
+        padding: 20px;
+        margin: 1px;
+        width: 150px;
+        text-align: center;
+        font-weight: bolder;
+      }
+      
+      /* changes colors when hovering over button */
+      .start-btn:hover {
+        background-color: rgb(119, 141, 165);
+        color: rgb(56, 56, 56);
+      }
+      
+      /* builds on central-box, defines specifics for game design page */
+      #design-box {
+        text-align: center;
+        height: auto;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        padding: 70px;
+      }
+      
+      /* double space the text on game design page for readability */
+      .double_space {
+        line-height: 2;
+      }
+      
+      /* builds on central-box, defines specifics for resource page */
+      #resource-box {
+        text-align: left;
+        height: auto;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        padding: 70px;
+      }
+      
+      /* link color for resource box*/
+      div#resource-box a {
+        text-decoration: none;
+        color: cornflowerblue;
+      }
+      
+      /* link hover color for resource box */
+      div#resource-box a:hover {
+        color: rgb(159, 183, 230);
+      }
+      
+      /* design of the game progress bars*/
+      #game-ui {
+        align-items: center;
+      }
+      
+      /* center the alignment of icons and progress bar in row */
+      #game-ui .row {
+        align-items: center;
+        height: 100%;
+      }
+      
+      /* set img size to fit within div */
+      #game-ui img {
+        width: 100%;
+        height: 100%;
+      }
+      
+      /* transition will be done by js and not css */
+      .progress-bar {
+        transition: none;
+      }
+      
+      /* shield color in progress bar, by default fills progress bar */
+      #shield-lvl {
+        background-color: #ff971e;
+        width: 100%;
+      }
+      
+      /* fuel color in progress bar, by default fills progress bar */
+      #fuel-lvl {
+        background-color: #50fa26;
+        width: 100%;
+      }
